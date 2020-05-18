@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block title %}Без Корзины{% endblock %}
+{% block content %}
+    <h1>Без Корзины</h1>
+        {% for item in items %}
+            <h2>
+                <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+            </h2>   
+        <p class="date">Published {{ item.publish }} by {{ item.author }}</p>
+    {{ item.body|truncatewords:30|linebreaks }}
+{% endfor %}
+{% endblock %}
